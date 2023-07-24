@@ -23,10 +23,11 @@ With a touch of creativity, the website offers a visually appealing 404 route, e
 
 ## Live Website Link: 
 #### Google Firebase: https://college-connect-shamiul.web.app/
-<!-- #### Netlify:  -->
+
+## Client Side Code Link:
+https://github.com/shamiul-anik/college-connect-client
 
 ## API Link:
 https://college-connect-server-production.up.railway.app/
 
-## Client Side Code Link:
-https://github.com/shamiul-anik/college-connect-client
+

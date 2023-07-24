@@ -51,6 +51,27 @@ async function run() {
       indexOptions
     );
 
+    // Save User Information and Role in DB
+    app.put("/users/:email", async (req, res) => {
+      const email = req.params.email;
+      const user = req.body;
+      // console.log(user);
+
+      const query = { email: email };
+      const existingUser = await userCollection.findOne(query);
+
+      if (existingUser) {
+        return res.send({ message: "User already exists!" });
+      }
+
+      const options = { upsert: true };
+      const updateDoc = {
+        $set: user,
+      };
+      const result = await userCollection.updateOne(query, updateDoc, options);
+      res.send(result);
+    });
+
     // Colleges
     app.get("/colleges", async (req, res) => {
       const limit = parseInt(req.query?.limit);
