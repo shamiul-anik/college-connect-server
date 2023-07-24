@@ -28,6 +28,6 @@ With a touch of creativity, the website offers a visually appealing 404 route, e
 https://github.com/shamiul-anik/college-connect-client
 
 ## API Link:
-https://college-connect-server-production.up.railway.app/
+https://college-connect-shamiul-production.up.railway.app
 
 

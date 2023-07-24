@@ -82,9 +82,7 @@ async function run() {
       console.log(search);
 
       let query = {};
-      // if (email) {
-      //   query = { seller_email: email };
-      // }
+      
       if (search) {
         query = {
           college_name: { $regex: search, $options: "i" },
