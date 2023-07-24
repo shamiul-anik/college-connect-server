@@ -72,6 +72,29 @@ async function run() {
       res.send(result);
     });
 
+    // Update User Information
+    app.put("/update-user/:email", async (req, res) => {
+      const email = req.params.email;
+      const user = req.body;
+      // console.log(user);
+      const query = { email: email };
+      const options = { upsert: true };
+      const updateDoc = {
+        $set: user,
+      };
+      const result = await userCollection.updateOne(query, updateDoc, options);
+      res.send(result);
+    });
+
+    // View Single Profile
+    app.get("/user/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { email: email };
+      const result = await userCollection.findOne(query); // Documentation: https://www.mongodb.com/docs/drivers/node/current/usage-examples/findOne/
+      // console.log(result);
+      res.send(result);
+    });
+
     // Colleges
     app.get("/colleges", async (req, res) => {
       const limit = parseInt(req.query?.limit);
@@ -82,7 +105,7 @@ async function run() {
       console.log(search);
 
       let query = {};
-      
+
       if (search) {
         query = {
           college_name: { $regex: search, $options: "i" },
